@@ -10,10 +10,11 @@ public enum RoadLine
 }
 
 public class Player : MonoBehaviour
-{
+{    
     [SerializeField] float positionX = 3.5f;
     [SerializeField] RoadLine roadLine;
 
+    [SerializeField] ObjectSound objectSound = new ObjectSound();
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            AudioManager.instance.Sound(objectSound.clips[0]);
             if(roadLine == RoadLine.LEFT)
             {
                 roadLine = RoadLine.LEFT;
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            AudioManager.instance.Sound(objectSound.clips[0]);
             if (roadLine == RoadLine.RIGHT)
             {
                 roadLine = RoadLine.RIGHT;
