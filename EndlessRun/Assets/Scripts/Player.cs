@@ -11,7 +11,7 @@ public enum RoadLine
 
 public class Player : MonoBehaviour
 {    
-    [SerializeField] float positionX = 3.5f;
+    [SerializeField] float positionX = 4f;
     [SerializeField] RoadLine roadLine;
 
     [SerializeField] ObjectSound objectSound = new ObjectSound();
@@ -66,4 +66,6 @@ public class Player : MonoBehaviour
                 break;
         }
     }
+
+    
 }
