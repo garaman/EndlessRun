@@ -57,11 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\ObjectSound.cs" />
+    <Compile Include="Assets\Scripts\etc\ObjectSound.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
-    <Compile Include="Assets\Scripts\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\RoadManager.cs" />
-    <Compile Include="Assets\Scripts\ColiisionBox.cs" />
+    <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\etc\ColiisionBox.cs" />
+    <Compile Include="Assets\Scripts\Manager\RoadManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\CoinManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
