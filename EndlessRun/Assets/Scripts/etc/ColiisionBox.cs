@@ -9,9 +9,7 @@ public class ColiisionBox : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("∏ ¿Ãµø");
             RoadManager.roadCallBack();
-            
         }
     }
 

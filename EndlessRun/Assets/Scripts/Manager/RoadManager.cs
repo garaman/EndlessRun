@@ -39,7 +39,12 @@ public class RoadManager : MonoBehaviour
         float zIndex = roads[roads.Count-1].transform.position.z + offset;
         newRoad.transform.position = new Vector3(0, 0, zIndex);
 
+        // 하위 오브젝트에 있는 CoinManager 클래스에 NewPosition() 함수를 호출합니다.
+        newRoad.transform.GetComponentInChildren<CoinManager>().NewPosition();
+
         roads.Add(newRoad);
+
+        
     }
 
 }

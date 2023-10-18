@@ -11,12 +11,13 @@ public class CoinManager : MonoBehaviour
     
     GameObject coin;
 
+    
+
     void Start()
-    {
+    {        
         CreateCoin();
+        createPosition.gameObject.SetActive(false);
     }
-
-
 
     public void CreateCoin()
     {        
@@ -26,9 +27,34 @@ public class CoinManager : MonoBehaviour
             
             coin.transform.SetParent(createPosition);
             
-            coin.transform.localPosition = new Vector3(coin.transform.position.x, coin.transform.position.y, i * zIndex);
-            
+            coin.transform.localPosition = new Vector3(coin.transform.position.x, coin.transform.position.y, i * zIndex);            
         }
+    }
+
+    public void NewPosition()
+    {
+        
+        RoadLine roadLine = (RoadLine)Random.Range(-1, 2);
+        float directValue = 3.5f;
+
+        switch(roadLine)
+        {
+            case RoadLine.LEFT:
+                createPosition.localPosition = new Vector3(-directValue, createPosition.position.y, createPosition.position.x);
+                break;
+            case RoadLine.MIDDLE:
+                createPosition.localPosition = new Vector3(createPosition.position.x, createPosition.position.y, createPosition.position.x);
+                break;
+            case RoadLine.RIGHT:
+                createPosition.localPosition = new Vector3(directValue, createPosition.position.y, createPosition.position.x);
+                break;
+        }
+
+        if(createPosition.gameObject.activeSelf == false)
+        {
+            createPosition.gameObject.SetActive(true);
+        }
+        
     }
 
    

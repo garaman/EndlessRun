@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] ObjectSound objectSound = new ObjectSound();
 
+    public float PositionX { get; private set; }
     void Start()
     {
         roadLine = RoadLine.MIDDLE;
@@ -67,5 +68,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        IItem item = other.GetComponent<IItem>();
+
+        if(item != null)
+        {
+            item.Use();
+        }
+    }
+
 }
