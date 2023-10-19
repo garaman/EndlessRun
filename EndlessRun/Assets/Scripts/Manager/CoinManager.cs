@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Percentage))]
 public class CoinManager : MonoBehaviour
 {
+    private Percentage percentage;
+
+    [SerializeField] int ItemCount;
     [SerializeField] int createCount = 15;
     [SerializeField] int zIndex = 2;
     [SerializeField] GameObject prefab;
     [SerializeField] Transform createPosition;
     
+    List<GameObject> coins = new List<GameObject>();
     GameObject coin;
-
+    bool itemFlag = false;
     
 
     void Start()
-    {        
+    {
+        percentage = GetComponent<Percentage>();
+
         CreateCoin();
         createPosition.gameObject.SetActive(false);
     }
@@ -27,13 +34,38 @@ public class CoinManager : MonoBehaviour
             
             coin.transform.SetParent(createPosition);
             
-            coin.transform.localPosition = new Vector3(coin.transform.position.x, coin.transform.position.y, i * zIndex);            
+            coin.transform.localPosition = new Vector3(coin.transform.position.x, coin.transform.position.y, i * zIndex);
+
+            coins.Add(coin);
         }
+    }
+
+    public void ActiveCoin()
+    {
+        foreach (var element in coins)
+        {
+            element.SetActive(true);
+        }
+
+        
+        ItemCount = percentage.Rand(20, out itemFlag);  
+        
+        if(itemFlag==true)
+        {
+            coins[ItemCount].SetActive(false);
+        }
+        
     }
 
     public void NewPosition()
     {
-        
+        ActiveCoin();        
+
+        if (createPosition.gameObject.activeSelf == false)
+        {
+            createPosition.gameObject.SetActive(true);
+        }
+
         RoadLine roadLine = (RoadLine)Random.Range(-1, 2);
         float directValue = 3.5f;
 
@@ -49,13 +81,9 @@ public class CoinManager : MonoBehaviour
                 createPosition.localPosition = new Vector3(directValue, createPosition.position.y, createPosition.position.x);
                 break;
         }
-
-        if(createPosition.gameObject.activeSelf == false)
-        {
-            createPosition.gameObject.SetActive(true);
-        }
-        
     }
+
+    
 
    
 }

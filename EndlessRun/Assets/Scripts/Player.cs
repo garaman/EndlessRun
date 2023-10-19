@@ -73,8 +73,9 @@ public class Player : MonoBehaviour
         IItem item = other.GetComponent<IItem>();
 
         if(item != null)
-        {
+        {            
             item.Use();
+            other.gameObject.SetActive(false);
         }
     }
 

@@ -17,7 +17,6 @@ public class RoadManager : MonoBehaviour
         roadCallBack = NewPosition;
     }
 
-
     void Update()
     {
         RoadMove();
@@ -43,8 +42,6 @@ public class RoadManager : MonoBehaviour
         newRoad.transform.GetComponentInChildren<CoinManager>().NewPosition();
 
         roads.Add(newRoad);
-
-        
     }
 
 }
