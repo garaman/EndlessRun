@@ -6,21 +6,23 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
     private Percentage percentage;
-
+    
     [SerializeField] int ItemCount;
     [SerializeField] int createCount = 15;
     [SerializeField] int zIndex = 2;
     [SerializeField] GameObject prefab;
     [SerializeField] Transform createPosition;
-    
+    [SerializeField] RotationManager rotationManager;
+
     List<GameObject> coins = new List<GameObject>();
     GameObject coin;
+
     bool itemFlag = false;
     
 
     void Start()
     {
-        percentage = GetComponent<Percentage>();
+        percentage = GetComponent<Percentage>();        
 
         CreateCoin();
         createPosition.gameObject.SetActive(false);
@@ -45,6 +47,7 @@ public class CoinManager : MonoBehaviour
         foreach (var element in coins)
         {
             element.SetActive(true);
+            element.transform.rotation = Quaternion.Euler(90,0,rotationManager.transform.rotation.z);
         }
 
         
