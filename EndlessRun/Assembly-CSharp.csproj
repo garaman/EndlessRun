@@ -67,10 +67,10 @@
     <Compile Include="Assets\Scripts\Items\Coin.cs" />
     <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
     <Compile Include="Assets\Scripts\etc\Percentage.cs" />
+    <Compile Include="Assets\Scripts\Manager\ButtonManager.cs" />
     <Compile Include="Assets\Scripts\etc\ColiisionBox.cs" />
     <Compile Include="Assets\Scripts\Manager\RotationManager.cs" />
     <Compile Include="Assets\Scripts\Manager\RoadManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\ButtonManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -9,9 +9,9 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] int createCount;
     [SerializeField] Button buttonprefab;
     [SerializeField] Transform createPosition;
+    [SerializeField] List<string> buttonTexts;    
 
-    List<Button> buttons = new List<Button>();
-    List<string> buttonTexts = new List<string>() { "Start","Shop","Option","Quit"};
+    List<Button> buttons = new List<Button>();    
     Button button;
     
     void Start()
@@ -38,31 +38,16 @@ public class ButtonManager : MonoBehaviour
 
 
     private void Register()
-    {
-        for (int i = 0; i < createCount; i++)
-        {
-            switch(i)
-            {
-                case 0:
-                    buttons[i].onClick.AddListener(A);
-                    break;
-                case 1:
-                    buttons[i].onClick.AddListener(B);
-                    break;
-                case 2:
-                    buttons[i].onClick.AddListener(C);
-                    break;
-                case 3:
-                    buttons[i].onClick.AddListener(D);
-                    break;
-
-            }
-            
-        }
+    {        
+        buttons[0].onClick.AddListener(StartGame);            
+        buttons[1].onClick.AddListener(B);             
+        buttons[2].onClick.AddListener(C);               
+        buttons[3].onClick.AddListener(D); 
     }
 
-    public void A()
-    {        
+    public void StartGame()
+    {
+        StartCoroutine(GameManager.instance.StartRoutine());
         Debug.Log("Start");
     }
 
