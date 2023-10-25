@@ -47,8 +47,8 @@ public class ButtonManager : MonoBehaviour
 
     public void StartGame()
     {
-        StartCoroutine(GameManager.instance.StartRoutine());
-        Debug.Log("Start");
+        //Debug.Log("Start");
+        StartCoroutine(GameManager.instance.StartRoutine(4));        
     }
 
     public void B()
