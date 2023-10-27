@@ -6,9 +6,16 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 150.0f;
+    [SerializeField] protected ParticleSystem particle;
 
     void Update()
     {
         transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
     }
+
+    protected void Effect()
+    {
+        particle.Play();
+    }
+    
 }

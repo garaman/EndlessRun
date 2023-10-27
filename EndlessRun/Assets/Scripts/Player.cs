@@ -17,12 +17,12 @@ public class Player : MonoBehaviour
     [SerializeField] ObjectSound objectSound = new ObjectSound();
 
     public float PositionX { get; private set; }
+
     void Start()
     {
         roadLine = RoadLine.MIDDLE;
     }
 
-    
     void Update()
     {
         Move();
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         if(item != null)
         {            
             item.Use();
-            other.gameObject.SetActive(false);
+            other.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
     }
 

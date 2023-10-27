@@ -6,6 +6,7 @@ public class Coin : Item, IItem
 {
     public void Use()
     {
+        Effect();
         Debug.Log("Coin");
     }
 }

@@ -46,7 +46,7 @@ public class CoinManager : MonoBehaviour
     {
         foreach (var element in coins)
         {
-            element.SetActive(true);
+            element.GetComponentInChildren<MeshRenderer>().enabled = true;
             element.transform.rotation = Quaternion.Euler(90,0,rotationManager.transform.rotation.z);
         }
 
