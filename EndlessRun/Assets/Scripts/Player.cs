@@ -27,11 +27,12 @@ public class Player : MonoBehaviour
     {
         Move();
         Status(roadLine);
+        
     }
 
     public void Move()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Time.timeScale != 0 )
         {
             AudioManager.instance.Sound(objectSound.clips[0]);
             if(roadLine == RoadLine.LEFT)
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
             else { roadLine--; }
             
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Time.timeScale != 0 )
         {
             AudioManager.instance.Sound(objectSound.clips[0]);
             if (roadLine == RoadLine.RIGHT)
