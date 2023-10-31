@@ -8,6 +8,8 @@ public class RoadManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> roads;
     [SerializeField] float speed = 5.0f;
+    [SerializeField] int count = 0;
+    [SerializeField] int maxCount = 10;
     float offset = 40.0f;
 
     public static Action roadCallBack;
@@ -16,6 +18,7 @@ public class RoadManager : MonoBehaviour
     {
         roads.Capacity = 4;
         roadCallBack = NewPosition;
+        roadCallBack += Increase;
     }
 
     void Update()
@@ -43,6 +46,16 @@ public class RoadManager : MonoBehaviour
         newRoad.transform.GetComponentInChildren<CoinManager>().NewPosition();
 
         roads.Add(newRoad);
+
+
     }
 
+    public void Increase()
+    {
+        //Debug.Log("¡ı∞°" + speed);
+        if(count < maxCount)
+        {
+            speed += Util.IncreaseValue(count++);
+        }
+    }
 }

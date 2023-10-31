@@ -13,6 +13,7 @@ public class CoinManager : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField] Transform createPosition;
     [SerializeField] RotationManager rotationManager;
+    [SerializeField] ItemManager itemManager;
 
     List<GameObject> coins = new List<GameObject>();
     GameObject coin;
@@ -22,7 +23,9 @@ public class CoinManager : MonoBehaviour
 
     void Start()
     {
-        percentage = GetComponent<Percentage>();        
+        percentage = GetComponent<Percentage>();
+
+        itemManager = GameObject.Find("Item Manager").GetComponent<ItemManager>();
 
         CreateCoin();
         createPosition.gameObject.SetActive(false);
@@ -55,6 +58,10 @@ public class CoinManager : MonoBehaviour
         
         if(itemFlag==true)
         {
+            GameObject item = itemManager.CloneItem();
+            item.transform.SetParent(createPosition);
+            item.transform.localPosition = coins[ItemCount].transform.position;
+
             coins[ItemCount].SetActive(false);
         }
         
