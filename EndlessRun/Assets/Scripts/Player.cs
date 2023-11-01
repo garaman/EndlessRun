@@ -78,6 +78,11 @@ public class Player : MonoBehaviour
             item.Use();
             other.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
+
+        if(other.CompareTag("Obstacle"))
+        {
+            Debug.Log("장애물 충돌");
+        }
     }
 
 }

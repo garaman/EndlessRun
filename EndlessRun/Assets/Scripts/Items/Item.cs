@@ -9,8 +9,9 @@ public class Item : MonoBehaviour
     [SerializeField] protected ParticleSystem particle;
 
     void Update()
-    {
-        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
+    {        
+        transform.Translate(Vector3.down * GameManager.instance.speed * Time.deltaTime);
+        transform.Rotate(0, 0, rotateSpeed * Time.deltaTime*0);
     }
 
     protected void Effect()

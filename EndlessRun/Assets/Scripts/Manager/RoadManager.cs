@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class RoadManager : MonoBehaviour
 {
-    [SerializeField] List<GameObject> roads;
-    [SerializeField] float speed = 5.0f;
+    [SerializeField] List<GameObject> roads;    
     [SerializeField] int count = 0;
     [SerializeField] int maxCount = 10;
     float offset = 40.0f;
@@ -30,7 +29,7 @@ public class RoadManager : MonoBehaviour
     {        
         for (int i = 0; i < roads.Count; i++)
         {
-            roads[i].transform.Translate(Vector3.back * speed * Time.deltaTime);
+            roads[i].transform.Translate(Vector3.back * GameManager.instance.speed * Time.deltaTime);
         }
     }
 
@@ -41,13 +40,8 @@ public class RoadManager : MonoBehaviour
 
         float zIndex = roads[roads.Count-1].transform.position.z + offset;
         newRoad.transform.position = new Vector3(0, 0, zIndex);
-
-        // 하위 오브젝트에 있는 CoinManager 클래스에 NewPosition() 함수를 호출합니다.
-        newRoad.transform.GetComponentInChildren<CoinManager>().NewPosition();
-
+        
         roads.Add(newRoad);
-
-
     }
 
     public void Increase()
@@ -55,7 +49,7 @@ public class RoadManager : MonoBehaviour
         //Debug.Log("증가" + speed);
         if(count < maxCount)
         {
-            speed += Util.IncreaseValue(count++);
+            GameManager.instance.speed += Util.IncreaseValue(count++)*0.3f;
         }
     }
 }
