@@ -49,7 +49,7 @@ public class RoadManager : MonoBehaviour
         //Debug.Log("Αυ°‘" + speed);
         if(count < maxCount)
         {
-            GameManager.instance.speed += Util.IncreaseValue(count++)*0.3f;
+            GameManager.instance.speed += Util.IncreaseValue(count++);
         }
     }
 }

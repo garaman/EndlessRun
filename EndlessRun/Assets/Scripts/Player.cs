@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum RoadLine
 {
@@ -15,12 +16,14 @@ public class Player : MonoBehaviour
     [SerializeField] RoadLine roadLine;
 
     [SerializeField] ObjectSound objectSound = new ObjectSound();
-
+    [SerializeField] UnityEvent playerEvent;
     public float PositionX { get; private set; }
+    private Animator animator ;
 
     void Start()
     {
         roadLine = RoadLine.MIDDLE;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -82,7 +85,20 @@ public class Player : MonoBehaviour
         if(other.CompareTag("Obstacle"))
         {
             Debug.Log("장애물 충돌");
+            Death();
         }
     }
 
+
+    private void Death()
+    {
+        Time.timeScale = 0;
+        animator.Play("Die");
+        
+        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f )
+        {
+            Debug.Log("팝업 생성");
+        }
+        
+    }
 }

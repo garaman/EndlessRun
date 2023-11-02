@@ -12,7 +12,7 @@ public class ItemManager : MonoBehaviour
     }
 
     public GameObject CloneItem()
-    {
-        return items[Random.Range(0, items.Count)];
+    { 
+        return Instantiate(items[Random.Range(0, items.Count)]);
     }
 }

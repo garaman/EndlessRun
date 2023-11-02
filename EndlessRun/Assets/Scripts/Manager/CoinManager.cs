@@ -25,11 +25,11 @@ public class CoinManager : MonoBehaviour
     {
         percentage = GetComponent<Percentage>();
 
-        itemManager = GameObject.Find("Items").GetComponent<ItemManager>();
+        itemManager = GameObject.Find("Item Manager").GetComponent<ItemManager>();
 
         CreateCoin();
 
-        //ActiveCoin();
+        ActiveCoin();
 
 
         //coins[createCount - 1].GetComponentInChildren<MeshFilter>().mesh = Resources.Load<Mesh>("Magnet");
@@ -58,18 +58,20 @@ public class CoinManager : MonoBehaviour
             element.GetComponentInChildren<MeshRenderer>().enabled = true;
             element.transform.rotation = Quaternion.Euler(90,0,rotationManager.transform.rotation.z);
         }
-
         
         ItemCount = percentage.Rand(20, out itemFlag);  
         
         if(itemFlag==true)
         {
-            GameObject item = itemManager.CloneItem(); 
-            item.transform.localPosition = coins[ItemCount].transform.position;
-
+            //Debug.Log(ItemCount);
             coins[ItemCount].SetActive(false);
+
+            GameObject item = itemManager.CloneItem(); 
+            item.transform.position = coins[ItemCount].transform.position;
+
+            coins[ItemCount] = item;
         }
-        
+
     }
 
     public void NewPosition(RoadLine roadLine, GameObject prefab)
