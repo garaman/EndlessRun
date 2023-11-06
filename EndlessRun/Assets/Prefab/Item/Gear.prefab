@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1302494240845544554}
   - component: {fileID: 7689575958932898682}
+  - component: {fileID: 8777886150206653985}
   m_Layer: 0
   m_Name: Gear
   m_TagString: Untagged
@@ -41,6 +42,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302494240845544553}
   m_Mesh: {fileID: -1379293901168597031, guid: ff11d6bf63037244788a6afc15da6643, type: 3}
+--- !u!114 &8777886150206653985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302494240845544553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d608a27b1be66014b83eaa925e55e5b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 150
+  particle: {fileID: 0}
 --- !u!1001 &1302494241016323781
 PrefabInstance:
   m_ObjectHideFlags: 0

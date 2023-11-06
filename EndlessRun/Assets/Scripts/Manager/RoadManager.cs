@@ -8,7 +8,7 @@ public class RoadManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> roads;    
     [SerializeField] int count = 0;
-    [SerializeField] int maxCount = 10;
+    [SerializeField] int maxCount = 15;
     float offset = 40.0f;
 
     public static Action roadCallBack;

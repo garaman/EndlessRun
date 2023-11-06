@@ -41,7 +41,7 @@ public class ButtonManager : MonoBehaviour
     {        
         buttons[0].onClick.AddListener(StartGame);            
         buttons[1].onClick.AddListener(B);             
-        buttons[2].onClick.AddListener(C);               
+        buttons[2].onClick.AddListener(Option);               
         buttons[3].onClick.AddListener(D); 
     }
 
@@ -56,9 +56,9 @@ public class ButtonManager : MonoBehaviour
         Debug.Log("B");
     }
 
-    public void C()
-    {     
-        Debug.Log("C");
+    public void Option()
+    {
+        AudioManager.instance.Open();
     }
 
     public void D()

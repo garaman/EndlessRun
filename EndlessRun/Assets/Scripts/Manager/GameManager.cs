@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] public float speed = 15f;
+    [SerializeField] public float speed = 20f;
     [SerializeField] GameObject layoutPanel;
 
     [SerializeField] Animator countAnimator;

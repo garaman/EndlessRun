@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6638993257126885606}
   - component: {fileID: -5716680686608187780}
+  - component: {fileID: 4211040290467943102}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -41,6 +42,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6699516313485943884}
   m_Mesh: {fileID: 6816509620845962255, guid: 4c774eacc8336154eb814ed9086f3df7, type: 3}
+--- !u!114 &4211040290467943102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6699516313485943884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d608a27b1be66014b83eaa925e55e5b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 150
+  particle: {fileID: 0}
 --- !u!1001 &3120779253463808666
 PrefabInstance:
   m_ObjectHideFlags: 0
