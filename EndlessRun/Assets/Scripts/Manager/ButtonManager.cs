@@ -42,7 +42,7 @@ public class ButtonManager : MonoBehaviour
         buttons[0].onClick.AddListener(StartGame);            
         buttons[1].onClick.AddListener(B);             
         buttons[2].onClick.AddListener(Option);               
-        buttons[3].onClick.AddListener(D); 
+        buttons[3].onClick.AddListener(Quit); 
     }
 
     public void StartGame()
@@ -61,8 +61,14 @@ public class ButtonManager : MonoBehaviour
         AudioManager.instance.Open();
     }
 
-    public void D()
-    {   
-        Debug.Log("D");
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+
+     
     }
 }

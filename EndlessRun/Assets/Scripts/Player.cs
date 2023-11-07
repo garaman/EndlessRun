@@ -11,9 +11,13 @@ public enum RoadLine
 }
 
 public class Player : MonoBehaviour
-{    
-    [SerializeField] float positionX = 4f;
+{
+    [SerializeField] CharacterController characterController;
+
     [SerializeField] RoadLine roadLine;
+    [SerializeField] float positionX = 4f;
+    [SerializeField] float jumpPower = 20f;
+
 
     [SerializeField] ObjectSound objectSound = new ObjectSound();
     [SerializeField] UnityEvent playerEvent;
@@ -29,8 +33,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
-        Status(roadLine);
-        
+
+        Jump();
+
+        Status(roadLine);        
     }
 
     public void Move()
@@ -53,6 +59,18 @@ public class Player : MonoBehaviour
                 roadLine = RoadLine.RIGHT;
             }
             else { roadLine++; }
+        }
+    }
+
+    public void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && Time.timeScale != 0)
+        {
+            if(transform.position.y <= 0.01f)
+            {
+                characterController.Move(Vector3.up * jumpPower * Time.deltaTime);
+            }
+            
         }
     }
 
@@ -92,13 +110,13 @@ public class Player : MonoBehaviour
 
     private void Death()
     {
-        Time.timeScale = 0;
+        playerEvent.Invoke();
+        //Time.timeScale = 0;
         animator.Play("Die");
-        
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f )
-        {
-            Debug.Log("ÆË¾÷ »ý¼º");
-        }
-        
+    }
+
+    public void OnGameOverUI()
+    {
+        GameManager.instance.GameOverPanel();
     }
 }
